@@ -14,5 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ \App\Http\Controllers\ProfileController::class, 'welcome' ]);
-Route::get('/test', [ \App\Http\Controllers\ProfileController::class, 'test' ]);
 Route::post('/contact', [ \App\Http\Controllers\ProfileController::class, 'contact' ]);
