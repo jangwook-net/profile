@@ -1,10 +1,6 @@
-
-.contact-section {
-    height: 100vh;
-}
-
 .contact-form {
     width: 60%;
+    margin: 0 20%;
 }
 
 .contact-form table {

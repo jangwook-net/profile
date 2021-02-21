@@ -11,47 +11,74 @@
 
         <script src="{{ asset('js/app.js') }}" defer></script>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css" />
     </head>
     <body class="antialiased">
         @if (session('contact_result'))
             <div class="contact-result" onclick="this.remove()">{{ session('contact_result') }}</div>
         @endif
 
-        <section class="main-visual-section">
-            Welcome!<br>
-            Hi, I’m <span class="color-main">{{ $name }}</span>.<br>
-            If you want to know about me,<br>
-            Click the below button!<br>
+        @include('sections.mail-visual', [ 'name' => $name ])
+        @include('sections.about')
+        @include('sections.portfolio', [ 'portfolios' => $portfolios, 'carousel' => $carousel ])
+        @include('sections.contacts', [ 'errors' => $errors ])
 
-            <button class="btn-go-to-who-i-am">Who I am?</button>
-        </section>
+        <footer>
+            <p>(c) copy right</p>
+        </footer>
 
-        <section class="contact-section">
-            <div class="section-title">Contact</div>
 
-            @foreach ($errors->all() as $message)
-                <div class="error-msg">{{ $message }}</div>
+        <style>
+            .carousel__item {
+                -webkit-animation: carousel-animate-vertical <?= $carousel['count'] * $carousel['timing'] ?>s linear infinite;
+                animation: carousel-animate-vertical <?= $carousel['count'] * $carousel['timing'] ?>s linear infinite;
+            }
+            @foreach ($portfolios as $idx => $p)
+            .carousel__item:nth-child(<?= $idx + 1 ?>) {
+                -webkit-animation-delay: calc(<?= $carousel['timing'] ?>s * <?= $idx - $carousel['count'] ?>);
+                animation-delay: calc(<?= $carousel['timing'] ?>s * <?= $idx - $carousel['count'] ?>);
+            }
             @endforeach
 
-            <form action="/contact" method="post" class="contact-form">
-                @csrf
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <td><input type="text" name="name" placeholder="Name" required></td>
-                    </tr>
-                    <tr>
-                        <th>E-mail Address</th>
-                        <td><input type="email" name="email" placeholder="E-mail Address" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <textarea name="contents" rows="10" placeholder="Input messages." required></textarea>
-                        </td>
-                    </tr>
-                </table>
-                <button type="submit">Send</button>
-            </form>
-        </section>
+            @keyframes carousel-animate-vertical {
+                0% {
+                    transform: translateY(100%) scale(0.5);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                <?= $carousel['timing'] ?>%,
+                <?= $carousel['stepFraction'] ?>% {
+                    transform: translateY(100%) scale(0.7);
+                    opacity: .4;
+                    visibility: visible;
+                }
+                <?= $carousel['stepFraction'] + $carousel['timing'] ?>%,
+                <?= $carousel['stepFraction'] * 2 ?>% {
+                    transform: translateY(0) scale(1);
+                    opacity: 1;
+                    visibility: visible;
+                }
+                <?= $carousel['stepFraction'] * 2 + $carousel['timing'] ?>%,
+                <?= $carousel['stepFraction'] * 3 ?>% {
+                    transform: translateY(-100%) scale(0.7);
+                    opacity: .4;
+                    visibility: visible;
+                }
+                <?= $carousel['stepFraction'] * 3 + $carousel['timing'] ?>% {
+                    transform: translateY(-100%) scale(0.5);
+                    opacity: 0;
+                    visibility: visible;
+                }
+                100% {
+                    transform: translateY(-100%) scale(0.5);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        </style>
+
     </body>
 </html>

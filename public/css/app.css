@@ -376,20 +376,29 @@ video {
 
 .main-visual-section {
     font-size: 3rem;
-    height: 100vh;
 }
 
-.main-visual-section span {
-    display: contents;
+@media (max-width: 768px) {
+    .main-visual-section {
+        font-size: 2rem;
+    }
+}
+
+/*.main-visual-section span {*/
+/*    display: contents;*/
+/*}*/
+
+.main-visual-section .pure-u-1-1 {
+    padding-top: 20vh;
 }
 
 .btn-go-to-who-i-am {
     font-size: 1.5rem;
     padding: 15px 50px;
     border: 1px solid #FF0080;
-    background-color: transparent;
+    background-color: #FFFFFF;
     transition-duration: 0.5s;
-    margin-top: 50px;
+    margin-top: 10vh;
     cursor: pointer;
 }
 
@@ -400,12 +409,228 @@ video {
 }
 
 
-.contact-section {
+
+/**
+
+ */
+
+@-webkit-keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 50px 50px;
+    }
+}
+@keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 50px 50px;
+    }
+}
+@-webkit-keyframes bg-scrolling {
+    0% {
+        background-position: 50px 50px;
+    }
+}
+@keyframes bg-scrolling {
+    0% {
+        background-position: 50px 50px;
+    }
+}
+/* Main styles */
+body {
+    margin-top: 13.5rem;
+    color: #999;
+    font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+    text-align: center;
+    /* img size is 50x50 */
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+    -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+    /* Safari 4+ */
+    /* Fx 5+ */
+    /* Opera 12+ */
+    animation: bg-scrolling-reverse 0.92s infinite;
+    /* IE 10+ */
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+body::before {
+    font-size: 8rem;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.about-section {
     height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        height: 300vh;
+    }
+}
+
+.about-section .pure-u-md-1-3 {
+    padding: 0 10px;
+}
+
+
+@media (max-width: 768px) {
+    .pure-u-md-1-3 {
+        height: 100vh;
+        letter-spacing: normal;
+        width: 100%;
+    }
+}
+
+.about-section p {
+    letter-spacing: normal;
+}
+
+.about-section .title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+    display: inline-block;
+    padding-bottom: 10px;
+    letter-spacing: normal;
+}
+
+.about-img {
+    width: 80%;
+    margin-left: 10%;
+    display: block;
+}
+
+.about-section table {
+    border-collapse: collapse;
+}
+
+.about-section th,
+.about-section td {
+    border: 1px solid #718096;
+    font-size: 0.7rem;
+}
+
+.about-section th {
+    padding: 10px 5px;
+    background-color: rgb(255, 99, 132);
+    color: #FFFFFF;
+}
+.about-section td {
+    background-color: #FFFFFF;
+}
+
+
+#chartjs-radar {
+    width: 100%;
+}
+
+.wrapper {
+    /*background: linear-gradient(60deg, #420285, #08BDBD);*/
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: calc(-1 * (1.7rem + 70px));
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.carousel__item {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    padding: 0 12px;
+    opacity: 0;
+    /*filter: drop-shadow(0 2px 2px #555);*/
+    will-change: transform, opacity;
+    cursor: pointer;
+}
+
+.carousel__item:last-child {
+    -webkit-animation-delay: calc(-3s * 2);
+    animation-delay: calc(-3s * 2);
+}
+
+
+.carousel__item-head {
+    border: 1px solid #cccccc;
+    background-color: #FFFFFF;
+    width: 90px;
+    height: 90px;
+    position: relative;
+    margin-right: -45px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    z-index: 2;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.carousel__item-body {
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 16px 20px 16px 70px;
+    transition-duration: 0.5s;
+    background-color: #ffffff;
+}
+
+.carousel__item-body .title {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottm: 10px;
+}
+
+.carousel__item-body .stacks {
+    margin: 5px;
+    color: #FF0080;
+    font-size: 0.8rem;
+}
+
+
+.modal .img {
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.modal .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.modal .stacks {
+    font-size: 1rem;
+    color: #FF0080;
+}
+
+.modal .description {
+    font-size: 0.8rem;
+}
+
+.modal .url {
+    margin-top: 5px;
+    font-size: 0.7rem;
+    color: #718096;
+}
+
+.modal .url.active {
+    color: blueviolet;
 }
 
 .contact-form {
     width: 60%;
+    margin: 0 20%;
 }
 
 .contact-form table {
@@ -475,6 +700,12 @@ body {
 }
 
 section {
+    height: 100vh;
+    border-bottom: 2px solid #999999;
+}
+
+.pure-g {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -494,5 +725,77 @@ section {
     color: #FF0080;
     margin-bottom: 30px;
     text-align: center;
+    top: 35px;
+}
+
+
+
+/*** 以下モーダル用CSS ***/
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+.modal:not(:target) {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+.modal:target{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+.modal .overlay{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+}
+.modal-wrapper{
+    width: 100%;
+    max-width: 650px;
+    min-width: 300px;
+    height: 100%;
+    max-height: 550px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal-contents{
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.modal-content{
+    margin: 25px;
+}
+.modal-close{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    text-decoration: none;
+}
+
+footer{
+    width: 100%;
+    background-color: #FF0080;
+    color: #fff;
+    text-align: center;
+    /*padding: 30px 0;*/
+
+    position: fixed;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
 }
 
