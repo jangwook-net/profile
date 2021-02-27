@@ -83,7 +83,7 @@ class ProfileController extends Controller
         // Contactが届いたことを知らせるメール送信
         $mail = new \App\Mail\ContactReceived($contact);
         $mail->subject('Contact Received From My Profile Site.');
-        \Illuminate\Support\Facades\Mail::to(env('MAIL_FROM_ADDRESS', 'kim.jangwook.1029@gmail.com'))
+        \Illuminate\Support\Facades\Mail::to('kim.jangwook.1029@gmail.com')
             ->send($mail);
 
         // 成功されたことを表すフラッシュを設定する
