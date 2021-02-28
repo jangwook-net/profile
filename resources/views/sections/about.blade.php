@@ -12,7 +12,7 @@
         </div>
         <div class="pure-u-md-1-3 pure-u-sm-1-1">
             <div class="title">Skills</div>
-            <table>
+            <table class="ta_center">
                 <tr>
                     <th>PHP - Laravel</th>
                     <td>Can create any type of web site as scratch.</td>

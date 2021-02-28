@@ -3,6 +3,14 @@
     margin: 0 20%;
 }
 
+@media (max-width: 768px) {
+    .contact-form {
+        margin: 0;
+        padding: 20px;
+        width: 100%;
+    }
+}
+
 .contact-form table {
     width: 100%;
 }

@@ -26,9 +26,9 @@
         @include('sections.portfolio', [ 'portfolios' => $portfolios, 'carousel' => $carousel ])
         @include('sections.contacts', [ 'errors' => $errors ])
 
-        <footer>
+        {{-- <footer>
             <p>(c) copy right</p>
-        </footer>
+        </footer> --}}
 
 
         <style>
