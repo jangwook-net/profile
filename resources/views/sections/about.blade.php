@@ -1,7 +1,7 @@
 <section class="about-section" id="about">
     @include('components.section-title', [ 'title' => 'Who I am?' ])
     <div class="pure-g" style="display: -webkit-box">
-        <div class="pure-u-md-1-3 pure-u-sm-1-1">
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-sm-1-1">
             <div class="title">Profile</div>
             <img src="{{ asset('images/iam.JPG') }}" class="about-img">
             <p>
@@ -10,7 +10,7 @@
                 Some of coffee and highball is my happiness.
             </p>
         </div>
-        <div class="pure-u-md-1-3 pure-u-sm-1-1">
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-sm-1-1">
             <div class="title">Skills</div>
             <table class="ta_center">
                 <tr>
@@ -47,7 +47,7 @@
                 </tr>
             </table>
         </div>
-        <div class="pure-u-md-1-3 pure-u-sm-1-1">
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-sm-1-1">
             <div class="title">Characteristics</div>
             <div id="chartjs-radar">
                 <canvas id="canvas"></canvas>
